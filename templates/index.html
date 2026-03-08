@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Analytics</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background: #eef2f7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .box {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        #chat {
+            height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: #fdfdfd;
+            border-radius: 8px;
+        }
+
+        .flex {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-send {
+            background: #007bff;
+            color: white;
+        }
+
+        .btn-rec {
+            background: #dc3545;
+            color: white;
+        }
+
+        .rec-active {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+        }
+
+        .card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+
+        .lbl {
+            font-size: 11px;
+            color: #888;
+            text-transform: uppercase;
+            display: block;
+        }
+
+        .val {
+            font-size: 20px;
+            font-weight: 800;
+            color: #333;
+        }
+
+        .high {
+            color: #d9534f;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h2 style="margin-top:0">Real-Time Voice Analytics</h2>
+        <div id="chat"></div>
+        <div class="flex">
+            <input type="text" id="msgIn" placeholder="Type or click record...">
+            <button class="btn-send" onclick="send()">Send</button>
+            <button class="btn-rec" id="recBtn" onclick="toggleRec()">Record</button>
+        </div>
+        <div class="grid">
+            <div class="card"><span class="lbl">Tone</span>
+                <div id="tone" class="val">-</div>
+            </div>
+            <div class="card"><span class="lbl">Sentiment</span>
+                <div id="sentiment" class="val">-</div>
+            </div>
+            <div class="card"><span class="lbl">Intent</span>
+                <div id="intent" class="val">-</div>
+            </div>
+            <div class="card"><span class="lbl">Risk</span>
+                <div id="risk" class="val">-</div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
