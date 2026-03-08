@@ -1,7 +1,0 @@
-fastapi
-uvicorn
-websockets
-textblob
-vaderSentiment
-jinja2
-python-multipart
